@@ -20,6 +20,7 @@ const NavBar = () => {
         <li><Link className="text-4xl" to="/">Home</Link></li>
         <li><Link className="text-4xl" to="/apartment">Apartment</Link></li>
         <li><Link className="text-4xl" to="/dashboard">dashboard</Link></li>
+        <li><Link className="text-4xl" to="/signup">SignUp</Link></li>
         {
             // user && isAdmin && <li><Link to="/dashboard/adminHome">Dashboard</Link></li>
         }
