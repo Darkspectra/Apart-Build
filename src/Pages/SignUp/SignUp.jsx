@@ -55,7 +55,7 @@ const SignUp = () => {
                 <div className="hero-content flex-col lg:flex-row-reverse">
                     <div className="text-center lg:text-left">
                         <h1 className="text-5xl font-bold">Sign up now!</h1>
-                        <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+                        <p className="py-6">The design and layout of an apartment can greatly influence its atmosphere and functionality. Clever space utilization is essential in smaller units, leading to creative storage solutions and multifunctional furniture. Larger apartments may feature open floor plans, spacious kitchens, and multiple bathrooms, offering a more luxurious living experience.</p>
                     </div>
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                         <form onSubmit={handleSubmit(onSubmit)} className="card-body">
@@ -101,7 +101,7 @@ const SignUp = () => {
                                 <input className="btn btn-primary" type="submit" value="Sign Up" />
                             </div>
                         </form>
-                        <p className="px-6"><small>Already have an account <Link to="/login">Login</Link></small></p>
+                        <p className="px-6"><small>Already have an account <Link to="/login"><span className="text-2xl font-bold text-blue-500">Login</span></Link></small></p>
                         {/* <SocialLogin></SocialLogin> */}
                     </div>
                 </div>

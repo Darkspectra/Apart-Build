@@ -1,26 +1,33 @@
-// import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../../assets/home/logo.jpg"
-// import { AuthContext } from "../../../providers/AuthProvider";
+import { AuthContext } from "../../../providers/AuthProvider";
+
 
 // import useAdmin from "../../../hooks/useAdmin";
 
 const NavBar = () => {
-    // const { user, logOut } = useContext(AuthContext);
+    const { user, logOut } = useContext(AuthContext);
+    const [isMenuOpen, setMenuOpen] = useState(false);
     // const [isAdmin] = useAdmin()
 
-    // const handleLogOut = () => {
-    //     logOut()
-    //         .then(() => { })
-    //         .catch(error => console.log(error));
-    // }
+    const handleLogOut = () => {
+        logOut()
+            .then(() => { })
+            .catch(error => console.log(error));
+    }
+
+    const toggleMenu = () => {
+        setMenuOpen(!isMenuOpen);
+    }
+
+    console.log(user);
 
     const navOptions = <>
         <Link to="/"><img className="w-16 rounded-full mx-auto" src={logo} alt="" /></Link>
-        <li><Link className="text-4xl" to="/">Home</Link></li>
-        <li><Link className="text-4xl" to="/apartment">Apartment</Link></li>
-        <li><Link className="text-4xl" to="/dashboard">dashboard</Link></li>
-        <li><Link className="text-4xl" to="/signup">SignUp</Link></li>
+        <li><Link className="text-2xl btn mx-10" to="/">Home</Link></li>
+        <li><Link className="text-2xl btn mr-10" to="/apartment">Apartment</Link></li>
+        {/* <li><Link className="text-4xl" to="/signup">SignUp</Link></li> */}
         {
             // user && isAdmin && <li><Link to="/dashboard/adminHome">Dashboard</Link></li>
         }
@@ -28,12 +35,28 @@ const NavBar = () => {
             // user && !isAdmin && <li><Link to="/dashboard/userHome">Dashboard</Link></li>
         }
         {
-            // user ? <>
-            //     {/* <span>{user?.displayName}</span> */}
-            //     <button onClick={handleLogOut} className="btn btn-ghost">LogOut</button>
-            // </> : <>
-            //     <li><Link to="/login">Login</Link></li>
-            // </>
+            user ? user.role="user" && <>
+                <li><Link className="text-2xl btn" to="/dashboard">dashboard</Link></li>
+                <div className="ml-14">
+                    <img onClick={toggleMenu} className="w-16 rounded-full mx-auto" src={user.photoURL} alt="" />
+                    {
+                        isMenuOpen && (
+                            <div className=" mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
+                                <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
+                                    {/* Dropdown menu items */}
+                                    <li className="text-black text-xl">Name: {user.displayName}</li>
+                                    <li className="text-blue-500 text-xl"><Link className="text-4xl btn" to="/dashboard">Dashboard</Link></li>
+                                    <button onClick={handleLogOut} className="text-2xl btn ml-16 text-red-400">LogOut</button>
+                                </div>
+                            </div>
+                        )
+                    }
+                </div>
+                <button onClick={handleLogOut} className="text-2xl btn ml-16 text-red-400">LogOut</button>
+            </> : <>
+                <Link className="btn" to="/login">Login</Link>
+
+            </>
         }
     </>
 
@@ -49,27 +72,12 @@ const NavBar = () => {
                             {navOptions}
                         </ul>
                     </div>
-                    <p className="text-6xl">Apart Build</p>
+                    <p className="text-6xl">Apart Bu<span className="text-blue-200 text-4xl font-bold">i</span>ld</p>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
                         {navOptions}
                     </ul>
-                </div>
-                <div className="navbar-end">
-                    <a className="btn">Login</a>
-                    {/* <select className="border-8" name="difficulty" id="">
-                            <option value="Easy">Easy</option>
-                            <option value="Medium">Medium</option>
-                            <option value="Hard">Hard</option>
-                    </select> */}
-                    <details className="dropdown">
-                        <summary className="m-1 btn">open or close</summary>
-                        <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52 text-black">
-                            <li><a>Item 1</a></li>
-                            <li><a>Item 2</a></li>
-                        </ul>
-                    </details>
                 </div>
             </div>
         </>
