@@ -21,6 +21,7 @@ const Apartment = () => {
                 blockName: room.block_name,
                 apartmentNo: room.apartment_no,
                 rent: room.rent,
+                accept_date: new Date(),
                 status: "pending"
             }
             console.log(agreementItem);

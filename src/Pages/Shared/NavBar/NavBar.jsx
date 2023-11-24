@@ -1,15 +1,17 @@
-import { useContext, useState } from "react";
+
 import { Link } from "react-router-dom";
 import logo from "../../../assets/home/logo.jpg"
-import { AuthContext } from "../../../providers/AuthProvider";
 
-
-// import useAdmin from "../../../hooks/useAdmin";
+import useAuth from "../../../hooks/useAuth";
+import { useState } from "react";
+import useMembers from "../../../hooks/useMembers";
 
 const NavBar = () => {
-    const { user, logOut } = useContext(AuthContext);
+    const { user, logOut } = useAuth();
+    const [users] = useMembers();
     const [isMenuOpen, setMenuOpen] = useState(false);
-    // const [isAdmin] = useAdmin()
+
+    const currentUser = users?.filter(person => person?.email === user?.email);
 
     const handleLogOut = () => {
         logOut()
@@ -21,7 +23,7 @@ const NavBar = () => {
         setMenuOpen(!isMenuOpen);
     }
 
-    console.log(user);
+
 
     const navOptions = <>
         <Link to="/"><img className="w-16 rounded-full mx-auto" src={logo} alt="" /></Link>
@@ -35,17 +37,31 @@ const NavBar = () => {
             // user && !isAdmin && <li><Link to="/dashboard/userHome">Dashboard</Link></li>
         }
         {
-            user ? user.role="user" && <>
-                <li><Link className="text-2xl btn" to="/dashboard">dashboard</Link></li>
+            user ? <>
+                <li><Link className="text-2xl btn" to="/dashboard">Dashboard</Link></li>
                 <div className="ml-14">
-                    <img onClick={toggleMenu} className="w-16 rounded-full mx-auto" src={user.photoURL} alt="" />
+                    <img onClick={toggleMenu} className="w-16 rounded-full mx-auto" src={currentUser[0]?.photo} alt="" />
                     {
                         isMenuOpen && (
                             <div className=" mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
                                 <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
                                     {/* Dropdown menu items */}
-                                    <li className="text-black text-xl">Name: {user.displayName}</li>
-                                    <li className="text-blue-500 text-xl"><Link className="text-4xl btn" to="/dashboard">Dashboard</Link></li>
+                                    <li className="text-black text-xl">Name: {currentUser[0]?.name}</li>
+                                    
+
+                                    {
+                                        currentUser[0]?.role === "admin" ? <>
+                                        <li className="text-blue-500 text-xl"><Link className="text-4xl btn" to="/adminDashboard">Dashboard</Link></li>
+                                        </>  : <>
+                                        {
+                                            currentUser[0]?.role === "user" ? <>
+                                            <li className="text-blue-500 text-xl"><Link className="text-4xl btn" to="/userDashboard">Dashboard</Link></li>
+                                            </> : <li className="text-blue-500 text-xl"><Link className="text-4xl btn" to="/memberDashboard">Dashboard</Link></li>
+                                        }
+                                        </>
+                                    }
+
+
                                     <button onClick={handleLogOut} className="text-2xl btn ml-16 text-red-400">LogOut</button>
                                 </div>
                             </div>
