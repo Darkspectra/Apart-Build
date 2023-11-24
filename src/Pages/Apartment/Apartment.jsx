@@ -1,11 +1,16 @@
+import Swal from "sweetalert2";
 import useAuth from "../../hooks/useAuth";
 import useRooms from "../../hooks/useRooms";
+import useAxios from "../../hooks/useAxios";
+import { useNavigate } from "react-router-dom";
 
 
 const Apartment = () => {
 
     const [rooms] = useRooms()
     const { user } = useAuth();
+    const navigate = useNavigate();
+    const axiosPublic = useAxios()
 
     const handleAddAgreement = room => {
         if (user && user.email) {
@@ -16,9 +21,39 @@ const Apartment = () => {
                 blockName: room.block_name,
                 apartmentNo: room.apartment_no,
                 rent: room.rent,
-                status: "prending"
+                status: "pending"
             }
             console.log(agreementItem);
+            axiosPublic.post('/agreement', agreementItem)
+                .then(res => {
+                    console.log(res.data)
+                    if (res.data.insertedId) {
+                        Swal.fire({
+                            position: "top-end",
+                            icon: "success",
+                            title: `${user.displayName}'s Agreement added!`,
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
+                    }
+
+                })
+                navigate("/");
+        }
+        else {
+            Swal.fire({
+                title: "You are not Logged In",
+                text: "Please login to add Agreement",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Yes, login!"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    navigate('/login', { state: { from: location } })
+                }
+            });
         }
     }
 
@@ -35,7 +70,7 @@ const Apartment = () => {
                             <p><span className="font-bold">Rent: </span>{room.rent}</p>
                             <div className="card-actions justify-end">
                                 <button
-                                    onClick={()=>handleAddAgreement(room)}
+                                    onClick={() => handleAddAgreement(room)}
                                     className="btn btn-outline bg-slate-100 border-0 border-b-4 border-orange-400 mt-4"
                                 >Agreement</button>
                             </div>
