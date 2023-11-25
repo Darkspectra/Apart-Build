@@ -47,19 +47,21 @@ const NavBar = () => {
                                 <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
                                     {/* Dropdown menu items */}
                                     <li className="text-black text-xl">Name: {currentUser[0]?.name}</li>
+                                    {/* <li className="text-blue-500 text-xl"><Link className="text-4xl btn" to="/dashboard">Dashboard</Link></li> */}
                                     
 
                                     {
                                         currentUser[0]?.role === "admin" ? <>
-                                        <li className="text-blue-500 text-xl"><Link className="text-4xl btn" to="/adminDashboard">Dashboard</Link></li>
+                                        <li className="text-blue-500 text-xl"><Link className="text-4xl btn" to="/dashboard/adminProfile">Profile</Link></li>
                                         </>  : <>
                                         {
                                             currentUser[0]?.role === "user" ? <>
-                                            <li className="text-blue-500 text-xl"><Link className="text-4xl btn" to="/userDashboard">Dashboard</Link></li>
-                                            </> : <li className="text-blue-500 text-xl"><Link className="text-4xl btn" to="/memberDashboard">Dashboard</Link></li>
+                                            <li className="text-blue-500 text-xl"><Link className="text-4xl btn" to="/dashboard/userProfile">Profile</Link></li>
+                                            </> : <li className="text-blue-500 text-xl"><Link className="text-4xl btn" to="/dashboard/memberProfile">Profile</Link></li>
                                         }
                                         </>
                                     }
+                                    
 
 
                                     <button onClick={handleLogOut} className="text-2xl btn ml-16 text-red-400">LogOut</button>
