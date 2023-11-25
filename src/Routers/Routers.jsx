@@ -14,6 +14,9 @@ import Announcement from "../Pages/Dashboard/Announcement/Announcement";
 import ViewAnnouncement from "../Pages/Dashboard/ViewAnnouncement/ViewAnnouncement";
 import ManageMember from "../Pages/Dashboard/ManageMember/ManageMember";
 import AgreementRequest from "../Pages/Dashboard/AgreementRequest/AgreementRequest";
+import MemberProfile from "../Pages/Dashboard/MemberProfile/MemberProfile";
+import MakePayment from "../Pages/Dashboard/MakePayment/MakePayment";
+import StripePage from "../Pages/StripePage/StripePage";
 
 
   export const router = createBrowserRouter([
@@ -54,6 +57,22 @@ import AgreementRequest from "../Pages/Dashboard/AgreementRequest/AgreementReque
         {
           path: 'announcement',
           element: <ViewAnnouncement></ViewAnnouncement>
+        },
+
+
+        // Member dashboard
+        {
+          path: 'memberProfile',
+          element: <MemberProfile></MemberProfile>
+        },
+        {
+          path: 'makePayment',
+          element: <MakePayment></MakePayment>
+        },
+        {
+          path: 'stripePage',
+          element: <StripePage></StripePage>
+
         },
 
         // Admin dashboard

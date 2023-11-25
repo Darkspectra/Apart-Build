@@ -8,7 +8,7 @@ import useAgreement from "../../../hooks/useAgreement";
 const ManageMember = () => {
     const [users] = useMembers()
     const currentMembers = users?.filter(person => person?.role === "member");
-    const {agree}=useAgreement()
+    const { agree } = useAgreement()
 
 
     const navigate = useNavigate();
@@ -19,46 +19,53 @@ const ManageMember = () => {
         const role = "user";
         const status = "rejected";
 
-        const newMember = {role}
-        const newStatus = {status}
+        const newMember = { role }
+        const newStatus = { status }
 
         fetch(`http://localhost:5000/users/${event._id}`, {
-                method: "PUT",
-                headers: {
-                    "content-type": "application/json"
-                },
-                body: JSON.stringify(newMember)
+            method: "PUT",
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify(newMember)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.modifiedCount > 0) {
+                    Swal.fire({
+                        title: 'Success!',
+                        text: 'User Removed!',
+                        icon: 'success',
+                        confirmButtonText: 'Cool'
+                    })
+                    navigate(location?.state ? location.state : '/')
+                }
             })
-                .then(res => res.json())
-                .then(data => {
-                    console.log(data);
-                    if (data.modifiedCount > 0) {
-                        Swal.fire({
-                            title: 'Success!',
-                            text: 'User Removed!',
-                            icon: 'success',
-                            confirmButtonText: 'Cool'
-                        })
-                        navigate(location?.state ? location.state : '/')
-                    }
-                })
 
 
 
         fetch(`http://localhost:5000/agreement/${changeStatus._id}`, {
-                method: "PUT",
-                headers: {
-                    "content-type": "application/json"
-                },
-                body: JSON.stringify(newStatus)
+            method: "PUT",
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify(newStatus)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.modifiedCount > 0) {
+                    console.log("Also Status Updated")
+                    Swal.fire({
+                        title: 'Success!',
+                        text: 'User Removed!',
+                        icon: 'success',
+                        confirmButtonText: 'Cool'
+                    })
+                    navigate(location?.state ? location.state : '/')
+                }
             })
-                .then(res => res.json())
-                .then(data => {
-                    console.log(data);
-                    if (data.modifiedCount > 0) {
-                        console.log("Also Status Updated")
-                    }
-                })
     }
 
 
@@ -83,7 +90,7 @@ const ManageMember = () => {
                             <td>{mem.email}</td>
                             <td>
                                 <button
-                                    onClick={()=>handleManage(mem)}
+                                    onClick={() => handleManage(mem)}
                                     className="btn btn-ghost btn-lg">
                                     <FaExclamation className="text-red-600"></FaExclamation>
                                 </button>
