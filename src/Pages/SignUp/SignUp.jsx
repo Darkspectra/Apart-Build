@@ -2,7 +2,6 @@ import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from 'sweetalert2'
-// import SocialLogin from "../../components/SocialLogin/SocialLogin";
 import { AuthContext } from "../../providers/AuthProvider";
 import useAxios from "../../hooks/useAxios";
 
@@ -102,7 +101,6 @@ const SignUp = () => {
                             </div>
                         </form>
                         <p className="px-6"><small>Already have an account <Link to="/login"><span className="text-2xl font-bold text-blue-500">Login</span></Link></small></p>
-                        {/* <SocialLogin></SocialLogin> */}
                     </div>
                 </div>
             </div>

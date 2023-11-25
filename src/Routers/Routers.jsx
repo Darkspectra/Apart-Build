@@ -13,6 +13,7 @@ import AdminProfile from "../Pages/Dashboard/AdminProfile/AdminProfile";
 import Announcement from "../Pages/Dashboard/Announcement/Announcement";
 import ViewAnnouncement from "../Pages/Dashboard/ViewAnnouncement/ViewAnnouncement";
 import ManageMember from "../Pages/Dashboard/ManageMember/ManageMember";
+import AgreementRequest from "../Pages/Dashboard/AgreementRequest/AgreementRequest";
 
 
   export const router = createBrowserRouter([
@@ -68,6 +69,10 @@ import ManageMember from "../Pages/Dashboard/ManageMember/ManageMember";
         {
           path: 'manageMembers',
           element: <ManageMember></ManageMember>
+        },
+        {
+          path: 'agreementRequest',
+          element: <AgreementRequest></AgreementRequest>
         }
 
       ]
