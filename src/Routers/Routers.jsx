@@ -12,6 +12,7 @@ import UserProfile from "../Pages/Dashboard/UserProfile/UserProfile";
 import AdminProfile from "../Pages/Dashboard/AdminProfile/AdminProfile";
 import Announcement from "../Pages/Dashboard/Announcement/Announcement";
 import ViewAnnouncement from "../Pages/Dashboard/ViewAnnouncement/ViewAnnouncement";
+import ManageMember from "../Pages/Dashboard/ManageMember/ManageMember";
 
 
   export const router = createBrowserRouter([
@@ -63,6 +64,10 @@ import ViewAnnouncement from "../Pages/Dashboard/ViewAnnouncement/ViewAnnounceme
         {
           path: 'makeAnnouncement',
           element: <Announcement></Announcement>
+        },
+        {
+          path: 'manageMembers',
+          element: <ManageMember></ManageMember>
         }
 
       ]
