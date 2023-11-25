@@ -6,7 +6,6 @@ import useCurrentUserAgreement from "../../../hooks/useCurrentUserAgreement";
 const UserProfile = () => {
     const [currentUser] = useCurrenUser();
     const { currentUserAgreement } = useCurrentUserAgreement();
-    console.log(currentUserAgreement);
     return (
         <div>
             <div className="avatar">

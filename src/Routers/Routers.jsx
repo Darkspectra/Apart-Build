@@ -9,6 +9,9 @@ import SignUp from "../Pages/SignUp/SignUp";
 import Login from "../Pages/Login/Login";
 import Dashboard from "../Layout/Dashboard";
 import UserProfile from "../Pages/Dashboard/UserProfile/UserProfile";
+import AdminProfile from "../Pages/Dashboard/AdminProfile/AdminProfile";
+import Announcement from "../Pages/Dashboard/Announcement/Announcement";
+import ViewAnnouncement from "../Pages/Dashboard/ViewAnnouncement/ViewAnnouncement";
 
 
   export const router = createBrowserRouter([
@@ -45,7 +48,23 @@ import UserProfile from "../Pages/Dashboard/UserProfile/UserProfile";
         {
           path: 'userProfile',
           element: <UserProfile></UserProfile>
+        },
+        {
+          path: 'announcement',
+          element: <ViewAnnouncement></ViewAnnouncement>
+        },
+
+        // Admin dashboard
+
+        {
+          path: 'adminProfile',
+          element: <AdminProfile></AdminProfile>
+        },
+        {
+          path: 'makeAnnouncement',
+          element: <Announcement></Announcement>
         }
+
       ]
     }
   ]);
