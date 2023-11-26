@@ -1,8 +1,9 @@
-# React + Vite
+## Key Features for website
+## Website name: [Apart-Build](https://apart-build.web.app/)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. User can accept the rooms agreement
+2. Admin can accept or reject the agreement
+3. There are three different users (normal user, member and admin)
+4. Each User has each unique Dashboard
+5. Member can pay via "Stripe" payment
