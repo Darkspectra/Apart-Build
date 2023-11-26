@@ -88,7 +88,7 @@ const CheckoutForm = () => {
 
                 
 
-                fetch(`http://localhost:5000/makePayment/${currentMember._id}`, {
+                fetch(`https://building-server.vercel.app/makePayment/${currentMember._id}`, {
                     method: "PUT",
                     headers: {
                         "content-type": "application/json"

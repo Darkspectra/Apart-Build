@@ -27,7 +27,7 @@ const ManageCoupons = () => {
             <span className="loading loading-spinner loading-lg"></span>
         }
         else {
-            fetch(`http://localhost:5000/coupon/${event._id}`, {
+            fetch(`https://building-server.vercel.app/coupon/${event._id}`, {
                 method: "DELETE"
             })
                 .then(res => res.json())

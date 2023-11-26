@@ -22,7 +22,7 @@ const ManageMember = () => {
         const newMember = { role }
         const newStatus = { status }
 
-        fetch(`http://localhost:5000/users/${event._id}`, {
+        fetch(`https://building-server.vercel.app/users/${event._id}`, {
             method: "PUT",
             headers: {
                 "content-type": "application/json"
@@ -45,7 +45,7 @@ const ManageMember = () => {
 
 
 
-        fetch(`http://localhost:5000/agreement/${changeStatus._id}`, {
+        fetch(`https://building-server.vercel.app/agreement/${changeStatus._id}`, {
             method: "PUT",
             headers: {
                 "content-type": "application/json"

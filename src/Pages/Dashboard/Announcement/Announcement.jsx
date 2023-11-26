@@ -13,7 +13,7 @@ const Announcement = () => {
         const newAnnouncement = { title, description};
         console.log(newAnnouncement);
 
-        fetch("http://localhost:5000/announcement", {
+        fetch("https://building-server.vercel.app/announcement", {
             method: "POST",
             headers: {
                 "content-type": "application/json"

@@ -27,7 +27,7 @@ const AgreementRequest = () => {
         const newStatus = { status }
 
 
-        fetch(`http://localhost:5000/users/${currentUser._id}`, {
+        fetch(`https://building-server.vercel.app/users/${currentUser._id}`, {
             method: "PUT",
             headers: {
                 "content-type": "application/json"
@@ -55,7 +55,7 @@ const AgreementRequest = () => {
 
 
 
-        fetch(`http://localhost:5000/agreement/${event._id}`, {
+        fetch(`https://building-server.vercel.app/agreement/${event._id}`, {
             method: "PUT",
             headers: {
                 "content-type": "application/json"
@@ -98,7 +98,7 @@ const AgreementRequest = () => {
         const newStatus = { status }
 
 
-        fetch(`http://localhost:5000/agreement/${event._id}`, {
+        fetch(`https://building-server.vercel.app/agreement/${event._id}`, {
             method: "PUT",
             headers: {
                 "content-type": "application/json"

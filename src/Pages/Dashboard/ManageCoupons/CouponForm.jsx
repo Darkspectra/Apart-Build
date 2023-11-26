@@ -17,7 +17,7 @@ const CouponForm = () => {
         const newCoupon = { code, discount, description };
         console.log(newCoupon);
 
-        fetch("http://localhost:5000/createCoupon", {
+        fetch("https://building-server.vercel.app/createCoupon", {
             method: "POST",
             headers: {
                 "content-type": "application/json"

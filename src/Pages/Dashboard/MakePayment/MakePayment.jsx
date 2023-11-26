@@ -30,7 +30,7 @@ const MakePayment = () => {
         const newMakePayment = { date, email, rent, floor, block, apart, transaction };
         console.log(newMakePayment);
 
-        fetch("http://localhost:5000/makePayment", {
+        fetch("https://building-server.vercel.app/makePayment", {
             method: "POST",
             headers: {
                 "content-type": "application/json"
