@@ -18,6 +18,8 @@ import MemberProfile from "../Pages/Dashboard/MemberProfile/MemberProfile";
 import MakePayment from "../Pages/Dashboard/MakePayment/MakePayment";
 import StripePage from "../Pages/StripePage/StripePage";
 import PaymentHistory from "../Pages/Dashboard/MakePayment/PaymentHistory";
+import ManageCoupons from "../Pages/Dashboard/ManageCoupons/ManageCoupons";
+import CouponForm from "../Pages/Dashboard/ManageCoupons/CouponForm";
 
 
   export const router = createBrowserRouter([
@@ -97,6 +99,14 @@ import PaymentHistory from "../Pages/Dashboard/MakePayment/PaymentHistory";
         {
           path: 'agreementRequest',
           element: <AgreementRequest></AgreementRequest>
+        },
+        {
+          path: 'manageCoupons',
+          element: <ManageCoupons></ManageCoupons>
+        },
+        {
+          path: 'couponForm',
+          element: <CouponForm></CouponForm>
         }
 
       ]

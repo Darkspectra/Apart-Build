@@ -20,7 +20,6 @@ const PaymentHistory = () => {
 
     return (
         <div>
-            <h2 className="text-2xl">This is payment history</h2>
 
             <div>
                 <h2 className="text-2xl">Payment History</h2>
