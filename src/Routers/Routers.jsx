@@ -20,6 +20,7 @@ import StripePage from "../Pages/StripePage/StripePage";
 import PaymentHistory from "../Pages/Dashboard/MakePayment/PaymentHistory";
 import ManageCoupons from "../Pages/Dashboard/ManageCoupons/ManageCoupons";
 import CouponForm from "../Pages/Dashboard/ManageCoupons/CouponForm";
+import PrivateRoute from "./PrivateRoute";
 
 
   export const router = createBrowserRouter([
@@ -55,58 +56,58 @@ import CouponForm from "../Pages/Dashboard/ManageCoupons/CouponForm";
       children: [
         {
           path: 'userProfile',
-          element: <UserProfile></UserProfile>
+          element: <PrivateRoute><UserProfile></UserProfile></PrivateRoute> 
         },
         {
           path: 'announcement',
-          element: <ViewAnnouncement></ViewAnnouncement>
+          element: <PrivateRoute><ViewAnnouncement></ViewAnnouncement></PrivateRoute> 
         },
 
 
         // Member dashboard
         {
           path: 'memberProfile',
-          element: <MemberProfile></MemberProfile>
+          element: <PrivateRoute><MemberProfile></MemberProfile></PrivateRoute> 
         },
         {
           path: 'Payment',
-          element: <MakePayment></MakePayment>
+          element: <PrivateRoute><MakePayment></MakePayment></PrivateRoute> 
         },
         {
           path: 'stripePage',
-          element: <StripePage></StripePage>
+          element: <PrivateRoute><StripePage></StripePage></PrivateRoute> 
 
         },
         {
           path: 'paymentHistory',
-          element: <PaymentHistory></PaymentHistory>
+          element: <PrivateRoute><PaymentHistory></PaymentHistory></PrivateRoute> 
         },
 
         // Admin dashboard
 
         {
           path: 'adminProfile',
-          element: <AdminProfile></AdminProfile>
+          element: <PrivateRoute><AdminProfile></AdminProfile></PrivateRoute> 
         },
         {
           path: 'makeAnnouncement',
-          element: <Announcement></Announcement>
+          element: <PrivateRoute><Announcement></Announcement></PrivateRoute> 
         },
         {
           path: 'manageMembers',
-          element: <ManageMember></ManageMember>
+          element: <PrivateRoute><ManageMember></ManageMember></PrivateRoute> 
         },
         {
           path: 'agreementRequest',
-          element: <AgreementRequest></AgreementRequest>
+          element: <PrivateRoute><AgreementRequest></AgreementRequest></PrivateRoute> 
         },
         {
           path: 'manageCoupons',
-          element: <ManageCoupons></ManageCoupons>
+          element: <PrivateRoute><ManageCoupons></ManageCoupons></PrivateRoute> 
         },
         {
           path: 'couponForm',
-          element: <CouponForm></CouponForm>
+          element: <PrivateRoute><CouponForm></CouponForm></PrivateRoute> 
         }
 
       ]
