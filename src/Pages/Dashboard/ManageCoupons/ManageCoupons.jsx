@@ -12,7 +12,7 @@ const ManageCoupons = () => {
 
     const navigate = useNavigate();
 
-    const { data: coupons = [] } = useQuery({
+    const { data: coupons = [], isPending: loading, refetch } = useQuery({
         queryKey: ['coupons'],
         queryFn: async () => {
             const res = await axiosPublic.get('/createCoupon');
@@ -23,22 +23,27 @@ const ManageCoupons = () => {
 
     const handleDelete = event => {
 
-
-        fetch(`http://localhost:5000/coupon/${event._Id}`, {
-            method: "DELETE"
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
-                if (data.deletedCount > 0) {
-                    Swal.fire(
-                        'Deleted!',
-                        'Your Coupon has been deleted.',
-                        'success'
-                    )
-                    navigate('/dashboard/manageCoupons')
-                }
+        if (loading) {
+            <span className="loading loading-spinner loading-lg"></span>
+        }
+        else {
+            fetch(`http://localhost:5000/coupon/${event._id}`, {
+                method: "DELETE"
             })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                    if (data.deletedCount > 0) {
+                        Swal.fire(
+                            'Deleted!',
+                            'Your Coupon has been deleted.',
+                            'success'
+                        )
+                        refetch();
+                        navigate('/dashboard/manageCoupons')
+                    }
+                })
+        }
     }
 
 
