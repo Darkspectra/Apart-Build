@@ -26,6 +26,7 @@ const MemberProfile = () => {
                                 <th>Floor</th>
                                 <th>Block</th>
                                 <th>Room no</th>
+                                <th>Status</th>
                             </tr>
                         </thead>
                         {
@@ -38,6 +39,10 @@ const MemberProfile = () => {
                                             <td>{agg.floorNo}</td>
                                             <td>{agg.blockName}</td>
                                             <td>{agg.apartmentNo}</td>
+                                            {agg.status === "pending" ? <><td className="text-orange-400">{agg.status}</td></> : 
+                                            agg.status === "rejected" ? <><td className="text-red-400">{agg.status}</td></> :
+                                            <td className="text-green-400">{agg.status}</td>
+                                            }
                                         </tr>)}
                                     </> :
                                     <tr>

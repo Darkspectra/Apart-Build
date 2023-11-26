@@ -67,7 +67,7 @@ import PaymentHistory from "../Pages/Dashboard/MakePayment/PaymentHistory";
           element: <MemberProfile></MemberProfile>
         },
         {
-          path: 'makePayment',
+          path: 'Payment',
           element: <MakePayment></MakePayment>
         },
         {
