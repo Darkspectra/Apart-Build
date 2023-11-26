@@ -17,6 +17,7 @@ import AgreementRequest from "../Pages/Dashboard/AgreementRequest/AgreementReque
 import MemberProfile from "../Pages/Dashboard/MemberProfile/MemberProfile";
 import MakePayment from "../Pages/Dashboard/MakePayment/MakePayment";
 import StripePage from "../Pages/StripePage/StripePage";
+import PaymentHistory from "../Pages/Dashboard/MakePayment/PaymentHistory";
 
 
   export const router = createBrowserRouter([
@@ -73,6 +74,10 @@ import StripePage from "../Pages/StripePage/StripePage";
           path: 'stripePage',
           element: <StripePage></StripePage>
 
+        },
+        {
+          path: 'paymentHistory',
+          element: <PaymentHistory></PaymentHistory>
         },
 
         // Admin dashboard

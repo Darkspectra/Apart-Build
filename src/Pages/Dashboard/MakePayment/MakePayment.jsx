@@ -10,7 +10,7 @@ const MakePayment = () => {
     const { user } = useAuth();
     const { agree } = useAgreement()
 
-    const currentMember = agree?.filter(person => person?.userEmail === user?.email);
+    const currentMember = agree?.filter(person => person?.userEmail === user?.email && person?.status==="accepted");
 
     const navigate = useNavigate();
 
