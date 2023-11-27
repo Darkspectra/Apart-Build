@@ -84,7 +84,7 @@ const Apartment = () => {
                 confirmButtonText: "Yes, login!"
             }).then((result) => {
                 if (result.isConfirmed) {
-                    navigate('/login', { state: { from: location } })
+                    navigate('/login')
                 }
             });
         }

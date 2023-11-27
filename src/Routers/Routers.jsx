@@ -21,12 +21,14 @@ import PaymentHistory from "../Pages/Dashboard/MakePayment/PaymentHistory";
 import ManageCoupons from "../Pages/Dashboard/ManageCoupons/ManageCoupons";
 import CouponForm from "../Pages/Dashboard/ManageCoupons/CouponForm";
 import PrivateRoute from "./PrivateRoute";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 
 
   export const router = createBrowserRouter([
     {
       path: "/",
       element: <Main></Main>,
+      errorElement: <ErrorPage></ErrorPage>,
       children: [
         {
          path: "/",
@@ -53,6 +55,7 @@ import PrivateRoute from "./PrivateRoute";
     {
       path: 'dashboard',
       element: <Dashboard></Dashboard>,
+      errorElement: <ErrorPage></ErrorPage>,
       children: [
         {
           path: 'userProfile',
